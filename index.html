@@ -12,10 +12,8 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(to bottom, orange, white, green);
     text-align: center;
-    color: #000;
 }
 
-/* ===== CENTER CARD ===== */
 .card {
     position: relative;
     top: 50%;
@@ -30,14 +28,8 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-h1 {
-    color: navy;
-    margin: 15px 0;
-}
-
-h2 {
-    color: #ff6600;
-}
+h1 { color: navy; }
+h2 { color: #ff6600; }
 
 .name {
     margin-top: 15px;
@@ -45,13 +37,12 @@ h2 {
     color: green;
 }
 
-/* ===== TYPING EFFECT ===== */
 .typing {
     font-size: 1.1rem;
     min-height: 30px;
 }
 
-/* ===== ASHOKA CHAKRA ===== */
+/* Ashoka Chakra */
 .chakra {
     width: 100px;
     height: 100px;
@@ -76,18 +67,14 @@ h2 {
     100% { transform: rotate(360deg); }
 }
 
-/* ===== FLAG ===== */
+/* Flag */
 .flag {
     width: 150px;
     height: 90px;
     margin: 10px auto;
     animation: wave 2s infinite ease-in-out;
 }
-
-.flag div {
-    height: 33.33%;
-}
-
+.flag div { height: 33.33%; }
 .orange { background: orange; }
 .white { background: white; }
 .green { background: green; }
@@ -97,7 +84,7 @@ h2 {
     50% { transform: skewY(-3deg); }
 }
 
-/* ===== SHARE BUTTON ===== */
+/* Button */
 button {
     margin-top: 15px;
     padding: 10px 18px;
@@ -109,7 +96,7 @@ button {
     cursor: pointer;
 }
 
-/* ===== CANVAS ===== */
+/* Fireworks Canvas */
 canvas {
     position: fixed;
     top: 0;
@@ -142,12 +129,13 @@ canvas {
     <button onclick="share()">Share 🇮🇳</button>
 </div>
 
+<!-- 🇮🇳 Jana Gana Mana (place file in same folder) -->
 <audio autoplay loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+    <source src="jana_gana_mana.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-/* ===== ASHOKA SPOKES ===== */
+/* Chakra Spokes */
 const chakra = document.getElementById("chakra");
 for(let i=0;i<24;i++){
     let s=document.createElement("span");
@@ -155,7 +143,7 @@ for(let i=0;i<24;i++){
     chakra.appendChild(s);
 }
 
-/* ===== TYPING TEXT ===== */
+/* Typing Effect */
 const text = "Proud to be an Indian. Jai Hind!";
 let i = 0;
 setInterval(()=>{
@@ -165,13 +153,13 @@ setInterval(()=>{
     }
 },80);
 
-/* ===== SHARE ===== */
+/* Share */
 function share(){
     const msg = "Happy Republic Day 2026 🇮🇳 — AAYUSHMAN SINGH";
     window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`);
 }
 
-/* ===== FIREWORKS ===== */
+/* Fireworks */
 const canvas = document.getElementById("fireworks");
 const ctx = canvas.getContext("2d");
 canvas.width = innerWidth;
@@ -191,4 +179,4 @@ setInterval(firework,500);
 </script>
 
 </body>
-</html>
+</html
