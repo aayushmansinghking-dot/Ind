@@ -2,181 +2,200 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Republic Day 2026</title>
+<title>Republic Day 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-    margin: 0;
-    overflow: hidden;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom, orange, white, green);
-    text-align: center;
 }
 
-.card {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: auto;
-    background: rgba(255,255,255,0.9);
-    padding: 30px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 400px;
-    z-index: 2;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+/* ---------- FIRST PAGE ---------- */
+#namePage{
+    height:100vh;
+    width:100vw;
+    background:linear-gradient(135deg,#ff9933,#ffffff,#138808);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
-h1 { color: navy; }
-h2 { color: #ff6600; }
-
-.name {
-    margin-top: 15px;
-    font-weight: bold;
-    color: green;
+#namePage h1{
+    font-size:2.2rem;
+    margin-bottom:20px;
 }
 
-.typing {
-    font-size: 1.1rem;
-    min-height: 30px;
+#nameInput{
+    padding:12px;
+    font-size:1.2rem;
+    text-transform:uppercase;
+    border-radius:8px;
+    border:none;
+    outline:none;
+    width:260px;
+    text-align:center;
 }
 
-/* Ashoka Chakra */
-.chakra {
-    width: 100px;
-    height: 100px;
-    border: 6px solid navy;
-    border-radius: 50%;
-    margin: 15px auto;
-    position: relative;
-    animation: spin 6s linear infinite;
+#enterBtn{
+    margin-top:20px;
+    padding:12px 30px;
+    font-size:1.1rem;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    background:#000080;
+    color:white;
 }
 
-.chakra span {
-    position: absolute;
-    width: 2px;
-    height: 45px;
-    background: navy;
-    top: 5px;
-    left: 50%;
-    transform-origin: bottom;
+/* ---------- SECOND PAGE ---------- */
+#mainPage{
+    display:none;
+    height:100vh;
+    width:100vw;
+    overflow:hidden;
+    position:relative;
 }
 
-@keyframes spin {
-    100% { transform: rotate(360deg); }
+/* FLAG BACKGROUND */
+.flag{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:
+        linear-gradient(#ff9933 33%, #ffffff 33%, #ffffff 66%, #138808 66%);
+    animation:wave 4s infinite ease-in-out;
 }
 
-/* Flag */
-.flag {
-    width: 150px;
-    height: 90px;
-    margin: 10px auto;
-    animation: wave 2s infinite ease-in-out;
-}
-.flag div { height: 33.33%; }
-.orange { background: orange; }
-.white { background: white; }
-.green { background: green; }
-
-@keyframes wave {
-    0%,100% { transform: skewY(0deg); }
-    50% { transform: skewY(-3deg); }
+@keyframes wave{
+    0%{transform:skewY(0deg);}
+    50%{transform:skewY(2deg);}
+    100%{transform:skewY(0deg);}
 }
 
-/* Button */
-button {
-    margin-top: 15px;
-    padding: 10px 18px;
-    border: none;
-    border-radius: 20px;
-    background: #25D366;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
+/* ASHOK CHAKRA */
+.chakra{
+    position:absolute;
+    top:50%;
+    left:-150px;
+    width:120px;
+    height:120px;
+    border:6px solid #000080;
+    border-radius:50%;
+    animation:roll 3s forwards linear;
 }
 
-/* Fireworks Canvas */
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
+.chakra::before{
+    content:'';
+    position:absolute;
+    width:4px;
+    height:100%;
+    background:#000080;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+@keyframes roll{
+    0%{left:-150px; transform:rotate(0deg);}
+    100%{left:50%; transform:translateX(-50%) rotate(720deg);}
+}
+
+/* CONTENT */
+.content{
+    position:relative;
+    z-index:2;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#000;
+    padding:20px;
+}
+
+.content h1{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+
+.content h2{
+    font-size:1.5rem;
+    margin-bottom:20px;
+}
+
+.hindi{
+    font-size:1.1rem;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.footer{
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.author{
+    position:absolute;
+    bottom:15px;
+    right:15px;
+    font-size:1rem;
+    font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="fireworks"></canvas>
-
-<div class="card">
-    <h2>26 January 2026</h2>
-
-    <div class="flag">
-        <div class="orange"></div>
-        <div class="white"></div>
-        <div class="green"></div>
-    </div>
-
-    <div class="chakra" id="chakra"></div>
-
-    <h1>Happy Republic Day 🇮🇳</h1>
-    <div class="typing" id="typing"></div>
-
-    <div class="name">— AAYUSHMAN SINGH</div>
-
-    <button onclick="share()">Share 🇮🇳</button>
+<!-- FIRST PAGE -->
+<div id="namePage">
+    <h1>Enter Your Name</h1>
+    <input type="text" id="nameInput" placeholder="YOUR NAME" />
+    <button id="enterBtn">ENTER</button>
 </div>
 
-<!-- 🇮🇳 Jana Gana Mana (place file in same folder) -->
-<audio autoplay loop>
-    <source src="jana_gana_mana.mp3" type="audio/mpeg">
-</audio>
+<!-- SECOND PAGE -->
+<div id="mainPage">
+    <div class="flag"></div>
+    <div class="chakra"></div>
+
+    <div class="content">
+        <h1>🇮🇳 HAPPY REPUBLIC DAY 🇮🇳</h1>
+        <h2>Mr. <span id="userName"></span></h2>
+
+        <div class="hindi">
+            भारत की पहचान, संविधान का मान,<br>
+            तिरंगे की शान में बसता है स्वाभिमान।<br>
+            एकता, अखंडता का यह पावन दिन,<br>
+            हर दिल में देशभक्ति का उजाला छिन।<br>
+            गणतंत्र दिवस की हार्दिक शुभकामनाएं।
+        </div>
+
+        <div class="footer">
+            Greetings from Ayushman<br>
+            <strong>JAI HIND 🇮🇳</strong>
+        </div>
+    </div>
+
+    <div class="author">🔥 AAYUSHMAN SINGH 🔥</div>
+</div>
 
 <script>
-/* Chakra Spokes */
-const chakra = document.getElementById("chakra");
-for(let i=0;i<24;i++){
-    let s=document.createElement("span");
-    s.style.transform=`rotate(${i*15}deg)`;
-    chakra.appendChild(s);
-}
-
-/* Typing Effect */
-const text = "Proud to be an Indian. Jai Hind!";
-let i = 0;
-setInterval(()=>{
-    if(i < text.length){
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
+document.getElementById("enterBtn").onclick = function(){
+    let name = document.getElementById("nameInput").value.trim().toUpperCase();
+    if(name === ""){
+        alert("Please enter your name");
+        return;
     }
-},80);
-
-/* Share */
-function share(){
-    const msg = "Happy Republic Day 2026 🇮🇳 — AAYUSHMAN SINGH";
-    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`);
-}
-
-/* Fireworks */
-const canvas = document.getElementById("fireworks");
-const ctx = canvas.getContext("2d");
-canvas.width = innerWidth;
-canvas.height = innerHeight;
-
-function firework(){
-    let x = Math.random()*canvas.width;
-    let y = Math.random()*canvas.height;
-    for(let i=0;i<20;i++){
-        ctx.beginPath();
-        ctx.arc(x,y,2,0,Math.PI*2);
-        ctx.fillStyle = ["orange","white","green"][Math.floor(Math.random()*3)];
-        ctx.fill();
-    }
-}
-setInterval(firework,500);
+    document.getElementById("userName").innerText = name;
+    document.getElementById("namePage").style.display = "none";
+    document.getElementById("mainPage").style.display = "block";
+};
 </script>
 
 </body>
-</html
+</html>
