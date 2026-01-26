@@ -1,80 +1,81 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>गणतंत्र दिवस 2026</title>
+<title>Republic Day 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Poppins:wght@400;600&family=Noto+Serif+Devanagari:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Cinzel:wght@600&family=Noto+Serif+Devanagari:wght@500&display=swap');
 
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* ENTRY PAGE */
-#namePage{
+/* ---------- PAGE 1 ---------- */
+#entry{
     height:100vh;
-    width:100vw;
-    background:radial-gradient(circle,#ffffff,#ff9933,#138808);
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    text-align:center;
+    background:linear-gradient(135deg,#ff9933,#ffffff,#138808);
     font-family:Poppins,sans-serif;
+    text-align:center;
 }
-#namePage h1{font-size:2.2rem;margin-bottom:25px}
+#entry h1{font-size:2.2rem;margin-bottom:20px}
 #nameInput{
     padding:14px;
-    width:280px;
-    font-size:1.2rem;
+    width:260px;
     text-align:center;
+    font-size:1.2rem;
     text-transform:uppercase;
     border-radius:10px;
     border:none;
-    outline:none;
 }
-#enterBtn{
+#startBtn{
     margin-top:25px;
     padding:14px 40px;
     font-size:1.1rem;
     border:none;
     border-radius:30px;
-    cursor:pointer;
     background:#000080;
-    color:white;
+    color:#fff;
+    cursor:pointer;
 }
 
-/* MAIN PAGE */
-#mainPage{
+/* ---------- PAGE 2 ---------- */
+#main{
     display:none;
     height:100vh;
-    width:100vw;
     overflow:hidden;
     position:relative;
 }
 
-/* REALISTIC FLAG */
+/* REAL FLYING FLAG */
 .flag{
     position:absolute;
-    width:120%;
-    height:120%;
-    left:-10%;
-    top:-10%;
-    background:linear-gradient(
+    width:140%;
+    height:100%;
+    left:-20%;
+    top:0;
+    background:
+      linear-gradient(
         180deg,
         #ff9933 0%,
-        #ffb366 33%,
-        #ffffff 34%,
+        #ff9933 33%,
+        #ffffff 33%,
         #ffffff 66%,
-        #138808 67%,
-        #1fa64a 100%
-    );
-    animation:flagWave 6s infinite ease-in-out;
-    filter:brightness(1.05) contrast(1.05);
+        #138808 66%,
+        #138808 100%
+      );
+    animation:fly 5s ease-in-out infinite;
+    filter:contrast(1.1);
 }
-@keyframes flagWave{
+
+@keyframes fly{
     0%{transform:translateX(0) skewY(0deg);}
-    50%{transform:translateX(-30px) skewY(2deg);}
+    25%{transform:translateX(-40px) skewY(2deg);}
+    50%{transform:translateX(0) skewY(0deg);}
+    75%{transform:translateX(40px) skewY(-2deg);}
     100%{transform:translateX(0) skewY(0deg);}
 }
 
@@ -88,7 +89,7 @@
     border:6px solid #000080;
     border-radius:50%;
     animation:roll 3.5s linear forwards;
-    background:rgba(255,255,255,0.6);
+    background:rgba(255,255,255,0.7);
 }
 .chakra span{
     position:absolute;
@@ -118,86 +119,83 @@
 .content h1{
     font-family:Cinzel,serif;
     font-size:2.6rem;
-    margin-bottom:15px;
-    font-weight:600;
+    margin-bottom:10px;
 }
 .content h2{
     font-family:Poppins,sans-serif;
-    font-size:1.6rem;
+    font-size:1.5rem;
     font-style:italic;
     margin-bottom:25px;
 }
-.hindi{
+.shayari{
     font-family:"Noto Serif Devanagari",serif;
     font-size:1.15rem;
     line-height:1.9;
-    margin-bottom:25px;
     font-style:italic;
+    margin-bottom:25px;
 }
 .footer{
     font-family:Poppins,sans-serif;
     font-weight:600;
+}
+#voiceBtn{
+    margin-top:15px;
+    padding:12px 28px;
+    border:none;
+    border-radius:25px;
+    background:#000080;
+    color:#fff;
+    cursor:pointer;
 }
 .author{
     position:absolute;
     bottom:15px;
     right:15px;
     font-weight:600;
-}
-
-/* VOICE BUTTON */
-#voiceBtn{
-    margin-top:15px;
-    padding:12px 30px;
-    border:none;
-    border-radius:25px;
-    background:#000080;
-    color:white;
-    font-size:1rem;
-    cursor:pointer;
+    font-family:Poppins,sans-serif;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ENTRY PAGE -->
-<div id="namePage">
-    <h1>अपना नाम लिखें</h1>
+<!-- PAGE 1 -->
+<div id="entry">
+    <h1>Enter Your Name</h1>
     <input id="nameInput" placeholder="YOUR NAME">
-    <button id="enterBtn">प्रवेश करें</button>
+    <button id="startBtn">ENTER</button>
 </div>
 
-<!-- MAIN PAGE -->
-<div id="mainPage">
+<!-- PAGE 2 -->
+<div id="main">
     <div class="flag"></div>
     <div class="chakra" id="chakra"></div>
 
     <div class="content">
-        <h1><b>गणतंत्र दिवस की शुभकामनाएं</b></h1>
-        <h2><i>श्रीमान <span id="userName"></span></i></h2>
+        <h1>HAPPY REPUBLIC DAY</h1>
+        <h2>Mr. <span id="userName"></span></h2>
 
-        <div class="hindi">
-            भारत की शान है यह पावन पर्व,<br>
-            संविधान में बसता हमारा गर्व।<br>
-            तिरंगे की लहरों में सजी पहचान,<br>
-            हर दिल में देशभक्ति का अभिमान।<br>
+        <div class="shayari">
+            भारत की पहचान, संविधान का मान,<br>
+            तिरंगे की लहरों में बसता अभिमान।<br>
+            एकता की शक्ति, आज़ादी की शान,<br>
+            हर दिल में गूंजे भारत का सम्मान।<br>
             गणतंत्र दिवस की हार्दिक शुभकामनाएं।
         </div>
 
         <div class="footer">
-            <b>शुभेच्छा सहित — आयुष्मान</b><br>
-            <strong><i>जय हिंद 🇮🇳</i></strong>
+            Greetings from Ayushman<br>
+            <strong><i>JAI HIND 🇮🇳</i></strong>
         </div>
 
-        <button id="voiceBtn">▶ हिंदी में सुनें</button>
+        <button id="voiceBtn">▶ Play Voice</button>
     </div>
 
     <div class="author">🔥 AAYUSHMAN SINGH 🔥</div>
 </div>
 
 <script>
-/* CREATE 24 SPOKES */
+/* 24 SPOKES */
 const chakra=document.getElementById("chakra");
 for(let i=0;i<24;i++){
     let s=document.createElement("span");
@@ -205,48 +203,46 @@ for(let i=0;i<24;i++){
     chakra.appendChild(s);
 }
 
-/* GET HINDI VOICE */
+/* BEST HINDI VOICE */
 function getHindiVoice(){
-    const voices=speechSynthesis.getVoices();
-    return voices.find(v=>v.lang==="hi-IN") || null;
+    const v=speechSynthesis.getVoices();
+    return v.find(x=>x.lang==="hi-IN")||null;
 }
 
-/* PURE HINDI SPEECH */
-function speakHindi(){
+/* POETIC SPEECH */
+function speak(){
     const name=document.getElementById("userName").innerText;
-    const text=
-        "गणतंत्र दिवस की हार्दिक शुभकामनाएं श्रीमान " + name + "। " +
-        "भारत की शान है यह पावन पर्व। " +
-        "संविधान में बसता हमारा गर्व। " +
-        "तिरंगे की लहरों में सजी पहचान। " +
-        "हर दिल में देशभक्ति का अभिमान। " +
-        "शुभेच्छा सहित आयुष्मान। जय हिंद।";
-
-    const utter=new SpeechSynthesisUtterance(text);
-    utter.voice=getHindiVoice();
-    utter.lang="hi-IN";
-    utter.rate=0.95;
-    utter.pitch=1;
-    utter.volume=1;
-
+    const lines=[
+        `हैप्पी रिपब्लिक डे श्रीमान ${name}।`,
+        "भारत की पहचान, संविधान का मान।",
+        "तिरंगे की लहरों में बसता अभिमान।",
+        "एकता की शक्ति, आज़ादी की शान।",
+        "हर दिल में गूंजे भारत का सम्मान।",
+        "गणतंत्र दिवस की हार्दिक शुभकामनाएं।",
+        "शुभेच्छा सहित आयुष्मान। जय हिंद।"
+    ];
     speechSynthesis.cancel();
-    speechSynthesis.speak(utter);
+    lines.forEach((l,i)=>{
+        const u=new SpeechSynthesisUtterance(l);
+        u.voice=getHindiVoice();
+        u.lang="hi-IN";
+        u.rate=0.85;
+        u.pitch=1;
+        u.volume=1;
+        setTimeout(()=>speechSynthesis.speak(u),i*2200);
+    });
 }
 
-/* BUTTON ACTIONS */
-document.getElementById("enterBtn").onclick=function(){
-    const name=document.getElementById("nameInput").value.trim().toUpperCase();
-    if(name===""){alert("कृपया नाम लिखें");return;}
-    document.getElementById("userName").innerText=name;
-    document.getElementById("namePage").style.display="none";
-    document.getElementById("mainPage").style.display="block";
+/* BUTTONS */
+document.getElementById("startBtn").onclick=()=>{
+    const n=document.getElementById("nameInput").value.trim().toUpperCase();
+    if(!n){alert("Please enter name");return;}
+    document.getElementById("userName").innerText=n;
+    document.getElementById("entry").style.display="none";
+    document.getElementById("main").style.display="block";
 };
+document.getElementById("voiceBtn").onclick=speak;
 
-document.getElementById("voiceBtn").onclick=function(){
-    speakHindi();
-};
-
-/* LOAD VOICES */
 speechSynthesis.onvoiceschanged=()=>{};
 </script>
 
