@@ -6,53 +6,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Poppins:wght@300;500&family=Noto+Serif+Devanagari:wght@500&display=swap');
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
 }
 
-/* ---------- FIRST PAGE ---------- */
+/* ---------------- ENTRY PAGE ---------------- */
 #namePage{
     height:100vh;
     width:100vw;
-    background:linear-gradient(135deg,#ff9933,#ffffff,#138808);
+    background:radial-gradient(circle at top,#ffffff,#ff9933,#138808);
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
+    font-family:Poppins,sans-serif;
 }
 
 #namePage h1{
-    font-size:2.2rem;
-    margin-bottom:20px;
+    font-size:2.3rem;
+    margin-bottom:25px;
+    font-weight:500;
 }
 
 #nameInput{
-    padding:12px;
+    padding:14px;
+    width:280px;
     font-size:1.2rem;
+    text-align:center;
     text-transform:uppercase;
-    border-radius:8px;
+    border-radius:10px;
     border:none;
     outline:none;
-    width:260px;
-    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
 }
 
 #enterBtn{
-    margin-top:20px;
-    padding:12px 30px;
+    margin-top:25px;
+    padding:14px 40px;
     font-size:1.1rem;
     border:none;
-    border-radius:25px;
+    border-radius:30px;
     cursor:pointer;
     background:#000080;
     color:white;
+    letter-spacing:1px;
 }
 
-/* ---------- SECOND PAGE ---------- */
+/* ---------------- MAIN PAGE ---------------- */
 #mainPage{
     display:none;
     height:100vh;
@@ -61,47 +66,58 @@
     position:relative;
 }
 
-/* FLAG BACKGROUND */
+/* REALISTIC WAVING FLAG */
 .flag{
     position:absolute;
-    width:100%;
-    height:100%;
+    width:120%;
+    height:120%;
+    left:-10%;
+    top:-10%;
     background:
-        linear-gradient(#ff9933 33%, #ffffff 33%, #ffffff 66%, #138808 66%);
-    animation:wave 4s infinite ease-in-out;
+        linear-gradient(
+            180deg,
+            #ff9933 0%,
+            #ffb366 33%,
+            #ffffff 34%,
+            #ffffff 66%,
+            #138808 67%,
+            #1fa64a 100%
+        );
+    animation:flagWave 6s infinite ease-in-out;
+    filter:contrast(1.05) brightness(1.05);
 }
 
-@keyframes wave{
-    0%{transform:skewY(0deg);}
-    50%{transform:skewY(2deg);}
-    100%{transform:skewY(0deg);}
+@keyframes flagWave{
+    0%{transform:translateX(0) skewY(0deg);}
+    50%{transform:translateX(-30px) skewY(2deg);}
+    100%{transform:translateX(0) skewY(0deg);}
 }
 
-/* ASHOK CHAKRA */
+/* ASHOKA CHAKRA */
 .chakra{
     position:absolute;
     top:50%;
-    left:-150px;
-    width:120px;
-    height:120px;
+    left:-160px;
+    width:140px;
+    height:140px;
     border:6px solid #000080;
     border-radius:50%;
-    animation:roll 3s forwards linear;
+    animation:roll 3.5s linear forwards;
+    background:rgba(255,255,255,0.6);
 }
 
-.chakra::before{
-    content:'';
+.chakra span{
     position:absolute;
-    width:4px;
+    width:2px;
     height:100%;
     background:#000080;
     left:50%;
-    transform:translateX(-50%);
+    transform-origin:center;
 }
 
 @keyframes roll{
-    0%{left:-150px; transform:rotate(0deg);}
-    100%{left:50%; transform:translateX(-50%) rotate(720deg);}
+    0%{left:-160px; transform:rotate(0deg);}
+    100%{left:50%; transform:translateX(-50%) rotate(1080deg);}
 }
 
 /* CONTENT */
@@ -114,70 +130,86 @@
     justify-content:center;
     align-items:center;
     text-align:center;
-    color:#000;
     padding:20px;
+    color:#000;
 }
 
 .content h1{
-    font-size:2.5rem;
+    font-family:Cinzel,serif;
+    font-size:2.6rem;
     margin-bottom:15px;
+    font-weight:600;
 }
 
 .content h2{
-    font-size:1.5rem;
-    margin-bottom:20px;
-}
-
-.hindi{
-    font-size:1.1rem;
-    line-height:1.8;
+    font-family:Poppins,sans-serif;
+    font-size:1.6rem;
+    font-style:italic;
     margin-bottom:25px;
 }
 
+.hindi{
+    font-family:"Noto Serif Devanagari",serif;
+    font-size:1.15rem;
+    line-height:1.9;
+    margin-bottom:30px;
+    font-style:italic;
+}
+
 .footer{
-    font-weight:bold;
-    margin-top:10px;
+    font-family:Poppins,sans-serif;
+    font-weight:500;
+}
+
+.footer strong{
+    font-weight:600;
 }
 
 .author{
     position:absolute;
     bottom:15px;
     right:15px;
-    font-size:1rem;
-    font-weight:bold;
+    font-family:Poppins,sans-serif;
+    font-weight:600;
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .content h1{font-size:2.1rem;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- FIRST PAGE -->
+<!-- ENTRY PAGE -->
 <div id="namePage">
     <h1>Enter Your Name</h1>
-    <input type="text" id="nameInput" placeholder="YOUR NAME" />
+    <input id="nameInput" placeholder="YOUR NAME">
     <button id="enterBtn">ENTER</button>
 </div>
 
-<!-- SECOND PAGE -->
+<!-- MAIN PAGE -->
 <div id="mainPage">
     <div class="flag"></div>
-    <div class="chakra"></div>
+
+    <div class="chakra" id="chakra"></div>
 
     <div class="content">
-        <h1>🇮🇳 HAPPY REPUBLIC DAY 🇮🇳</h1>
-        <h2>Mr. <span id="userName"></span></h2>
+        <h1><b>HAPPY REPUBLIC DAY</b></h1>
+        <h2><i>Mr. <span id="userName"></span></i></h2>
 
         <div class="hindi">
-            भारत की पहचान, संविधान का मान,<br>
-            तिरंगे की शान में बसता है स्वाभिमान।<br>
-            एकता, अखंडता का यह पावन दिन,<br>
-            हर दिल में देशभक्ति का उजाला छिन।<br>
+            भारत की शान है यह पावन पर्व,<br>
+            संविधान में बसता हमारा गर्व।<br>
+            तिरंगे की लहरों में सजी पहचान,<br>
+            हर दिल में देशभक्ति का अभिमान।<br>
             गणतंत्र दिवस की हार्दिक शुभकामनाएं।
         </div>
 
         <div class="footer">
-            Greetings from Ayushman<br>
-            <strong>JAI HIND 🇮🇳</strong>
+            <b>Greetings from Ayushman</b><br>
+            <strong><i>JAI HIND 🇮🇳</i></strong>
         </div>
     </div>
 
@@ -185,15 +217,24 @@
 </div>
 
 <script>
+/* Create 24 spokes */
+const chakra = document.getElementById("chakra");
+for(let i=0;i<24;i++){
+    let spoke = document.createElement("span");
+    spoke.style.transform = "rotate(" + (i*15) + "deg)";
+    chakra.appendChild(spoke);
+}
+
+/* Button action */
 document.getElementById("enterBtn").onclick = function(){
     let name = document.getElementById("nameInput").value.trim().toUpperCase();
-    if(name === ""){
+    if(name===""){
         alert("Please enter your name");
         return;
     }
     document.getElementById("userName").innerText = name;
-    document.getElementById("namePage").style.display = "none";
-    document.getElementById("mainPage").style.display = "block";
+    document.getElementById("namePage").style.display="none";
+    document.getElementById("mainPage").style.display="block";
 };
 </script>
 
