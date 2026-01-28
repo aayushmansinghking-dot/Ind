@@ -2,236 +2,156 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Republic Day 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rani Lakshmi Bai – Warrior Queen</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Cinzel:wght@600&family=Noto+Serif+Devanagari:wght@500&display=swap');
 
-*{margin:0;padding:0;box-sizing:border-box}
-
-/* ENTRY PAGE */
-#entry{
-    height:100vh;
-    background:linear-gradient(135deg,#ff9933,#ffffff,#138808);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    font-family:Poppins,sans-serif;
-}
-#entry h1{font-size:2.2rem;margin-bottom:20px}
-#nameInput{
-    padding:14px;
-    width:260px;
-    font-size:1.2rem;
-    text-align:center;
-    text-transform:uppercase;
-    border-radius:10px;
-    border:none;
-}
-#startBtn{
-    margin-top:25px;
-    padding:14px 40px;
-    font-size:1.1rem;
-    border:none;
-    border-radius:30px;
-    background:#000080;
-    color:white;
-    cursor:pointer;
+/* ===== Global ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f7f1e3, #d1ccc0);
+  color: #222;
+  overflow-x: hidden;
 }
 
-/* MAIN PAGE */
-#main{
-    display:none;
-    height:100vh;
-    overflow:hidden;
-    position:relative;
+header {
+  background: #6f1e51;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 2em;
+  font-weight: bold;
+  animation: slideDown 1s ease-out;
 }
 
-/* FLYING FLAG */
-.flag{
-    position:absolute;
-    width:140%;
-    height:100%;
-    left:-20%;
-    background:linear-gradient(
-        180deg,
-        #ff9933 0%, #ff9933 33%,
-        #ffffff 33%, #ffffff 66%,
-        #138808 66%, #138808 100%
-    );
-    animation:fly 5s ease-in-out infinite;
-}
-@keyframes fly{
-    0%{transform:translateX(0) skewY(0deg);}
-    25%{transform:translateX(-40px) skewY(2deg);}
-    50%{transform:translateX(0) skewY(0deg);}
-    75%{transform:translateX(40px) skewY(-2deg);}
-    100%{transform:translateX(0) skewY(0deg);}
+/* ===== Navigation ===== */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 15px 0;
 }
 
-/* ASHOKA CHAKRA */
-.chakra{
-    position:absolute;
-    top:50%;
-    left:-160px;
-    width:140px;
-    height:140px;
-    border:6px solid #000080;
-    border-radius:50%;
-    animation:roll 3.5s linear forwards;
-    background:rgba(255,255,255,0.7);
-}
-.chakra span{
-    position:absolute;
-    width:2px;
-    height:100%;
-    background:#000080;
-    left:50%;
-    transform-origin:center;
-}
-@keyframes roll{
-    0%{left:-160px;transform:rotate(0deg);}
-    100%{left:50%;transform:translateX(-50%) rotate(1080deg);}
+nav a {
+  text-decoration: none;
+  color: #6f1e51;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-/* CONTENT */
-.content{
-    position:relative;
-    z-index:2;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
+nav a:hover {
+  color: #b33771;
+  transform: scale(1.1);
 }
-.content h1{
-    font-family:Cinzel,serif;
-    font-size:2.6rem;
+
+/* ===== Section Styling ===== */
+section {
+  padding: 30px 15px;
+  max-width: 900px;
+  margin: auto;
+  animation: fadeIn 1.5s ease-in-out;
 }
-.content h2{
-    font-family:Poppins,sans-serif;
-    font-size:1.5rem;
-    margin-bottom:25px;
+
+h2 {
+  text-align: center;
+  color: #6f1e51;
+  margin-bottom: 15px;
 }
-.shayari{
-    font-family:"Noto Serif Devanagari",serif;
-    font-size:1.15rem;
-    line-height:1.9;
-    margin-bottom:25px;
+
+/* ===== Image Animation ===== */
+.hero-image {
+  display: block;
+  margin: 20px auto;
+  max-width: 90%;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+  animation: popIn 1s ease-out;
 }
-.footer{
-    font-family:Poppins,sans-serif;
-    font-weight:600;
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #6f1e51;
+  color: #fff;
 }
-#playBtn{
-    margin-top:15px;
-    padding:12px 28px;
-    border:none;
-    border-radius:25px;
-    background:#000080;
-    color:#fff;
-    cursor:pointer;
+
+/* ===== Animations ===== */
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
-.author{
-    position:absolute;
-    bottom:15px;
-    right:15px;
-    font-weight:600;
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
+
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0.3; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
-<div id="entry">
-    <h1>Enter Your Name Please</h1>
-    <input id="nameInput" placeholder="YOUR NAME">
-    <button id="startBtn">ENTER</button>
-</div>
+<!-- ===== Background Music ===== -->
+<audio id="bgMusic" autoplay loop>
+  <source src="your-music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
-<!-- PAGE 2 -->
-<div id="main">
-    <div class="flag"></div>
-    <div class="chakra" id="chakra"></div>
+<header>
+  Rani Lakshmi Bai – The Warrior Queen
+</header>
 
-    <div class="content">
-        <h1>HAPPY REPUBLIC DAY</h1>
-        <h2>Mr. <span id="userName"></span></h2>
+<nav>
+  <a href="#biography">Biography</a>
+  <a href="#contribution">Contribution</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#quotes">Slogans</a>
+</nav>
 
-        <div class="shayari">
-            भारत की पहचान, संविधान का मान,<br>
-            तिरंगे की लहरों में बसता अभिमान।<br>
-            एकता की शक्ति, आज़ादी की शान,<br>
-            हर दिल में गूंजे भारत का सम्मान।
-        </div>
+<!-- ===== Biography Section ===== -->
+<section id="biography">
+  <h2>Biography</h2>
+  <img src="rani-lakshmi-bai.png" alt="Rani Lakshmi Bai Portrait" class="hero-image">
+  <p>Rani Lakshmi Bai was born on 19 November 1828 in Varanasi as Manikarnika Tambe. She was trained in horse riding, sword fighting and showed bravery from a young age. After marrying Maharaja Gangadhar Rao of Jhansi, she became the Queen of Jhansi. When the British refused to accept her adopted son as heir, she fought to protect her kingdom with fearless determination.</p>
+</section>
 
-        <div class="footer">
-            Greetings from Ayushman<br>
-            <strong><i>JAI HIND 🇮🇳</i></strong>
-        </div>
+<!-- ===== Contribution Section ===== -->
+<section id="contribution">
+  <h2>Role in India’s Freedom Struggle</h2>
+  <p>Rani Lakshmi Bai played a pivotal role in India’s First War of Independence (1857). She led her army with courage and fought fiercely against British forces, motivating people with her patriotism and strength. Riding into battle with her infant tied to her back became one of the most iconic images of resistance in Indian history.</p>
+</section>
 
-        <button id="playBtn">▶ Play Greeting</button>
-    </div>
+<!-- ===== Gallery Section ===== -->
+<section id="gallery">
+  <h2>Gallery</h2>
+  <p>Below you can add more images or visuals related to Rani Lakshmi Bai.</p>
+  <!-- Example Additional Images 
+  <img src="gallery1.jpg" alt="Scene 1" class="hero-image">
+  <img src="gallery2.jpg" alt="Scene 2" class="hero-image">
+  -->
+</section>
 
-    <div class="author">🔥 AAYUSHMAN SINGH 🔥</div>
-</div>
+<!-- ===== Quotes / Slogans ===== -->
+<section id="quotes">
+  <h2>Famous Slogans</h2>
+  <ul>
+    <li>“Khoob ladi mardani, woh toh Jhansi wali Rani thi!”</li>
+    <li>“Main apni Jhansi nahi doongi!”</li>
+    <li>“Courage Beyond Time”</li>
+  </ul>
+</section>
 
-<!-- YOUR VOICE FILE -->
-<audio id="shayariAudio" src="shayari.mp3"></audio>
-
-<script>
-/* CHAKRA SPOKES */
-const chakra=document.getElementById("chakra");
-for(let i=0;i<24;i++){
-    let s=document.createElement("span");
-    s.style.transform="rotate("+(i*15)+"deg)";
-    chakra.appendChild(s);
-}
-
-/* AI ENGLISH VOICE */
-function speakEnglish(text){
-    const u=new SpeechSynthesisUtterance(text);
-    u.lang="en-IN";
-    u.rate=0.95;
-    speechSynthesis.speak(u);
-}
-
-/* FULL SEQUENCE */
-function playGreeting(){
-    const name=document.getElementById("userName").innerText;
-    speechSynthesis.cancel();
-
-    // 1️⃣ AI English
-    speakEnglish("Happy Republic Day Mister " + name);
-
-    // 2️⃣ Your voice (Hindi shayari)
-    setTimeout(()=>{
-        document.getElementById("shayariAudio").play();
-    },2500);
-
-    // 3️⃣ AI English ending
-    document.getElementById("shayariAudio").onended=()=>{
-        speakEnglish("Greetings from Ayushman. Jai Hind.");
-    };
-}
-
-/* BUTTONS */
-document.getElementById("startBtn").onclick=()=>{
-    const n=document.getElementById("nameInput").value.trim().toUpperCase();
-    if(!n){alert("Please enter name");return;}
-    document.getElementById("userName").innerText=n;
-    document.getElementById("entry").style.display="none";
-    document.getElementById("main").style.display="block";
-};
-document.getElementById("playBtn").onclick=playGreeting;
-
-speechSynthesis.onvoiceschanged=()=>{};
-</script>
+<footer>
+  Designed with ❤️ BY AAYUSHMAN SINGH
+</footer>
 
 </body>
 </html>
